@@ -1,0 +1,36 @@
+body {
+    background-image: url("bg.png");
+}
+
+.wrapper {
+	font-family: "Verdana", Geneva, serif;
+	margin-left: auto;
+	margin-right: auto;
+	/* width: 40%; */
+	text-align: center;
+}
+
+.container {
+	font-family: "Verdana", Geneva, serif;
+	margin-left: auto;
+	margin-right: auto;
+	/* width: 40%; */
+	text-align: center;
+}
+
+.centered {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.table {
+	background-color: white;
+	border-radius: 4px;
+	box-shadow: 2px 2px 2px #888888;
+}
+
+@media (min-height: 667px) and (min-width: 375px) and (-webkit-min-device-pixel-ratio: 3){
+	.wrapper {
+		width: 80%;
+	}
+  }
