@@ -24,3 +24,5 @@ http://easybooking.bartekstolarek.epizy.com
 ### Screens
 
 ![Alt Text](https://image.ibb.co/hbrHVH/easybooking.gif)
+
+![Alt Text](https://image.ibb.co/mTwLHx/relations.png)
