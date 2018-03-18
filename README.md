@@ -20,3 +20,7 @@ easyBooking is a PHP, MySQL and AJAX web application, which provides the booking
 
 ### Demo
 http://easybooking.bartekstolarek.epizy.com
+
+### Screens
+
+![Alt Text](https://image.ibb.co/hbrHVH/easybooking.gif)
