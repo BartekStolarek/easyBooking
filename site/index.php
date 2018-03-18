@@ -16,9 +16,9 @@ require('db.php');
 		<?php 			
 		if ($_SESSION['accountType'] == 'client') {
 			
-			echo "<h3>Witaj ".$_SESSION['username']."!</h3>";
+			echo "<h3>Welcome ".$_SESSION['username']."!</h3>";
 			echo "<br>";
-			echo "<h2>Aktualnie zarezerwowane przez Ciebie pokoje: </h2>";
+			echo "<h2>Current booked rooms: </h2>";
 		
 		
 			$id = $_SESSION['userId'];
@@ -43,15 +43,15 @@ require('db.php');
 			echo "<table class='table table-hover'>";
 			echo "<thead>";
 			echo "<tr>";
-			echo "<th>Numer Pokoju</th>";
-			echo "<th>Cena za dobę</th>";
-			echo "<th>Ilu osobowy</th>";
+			echo "<th>Room number</th>";
+			echo "<th>Price per night</th>";
+			echo "<th>Number of persons</th>";
 			echo "</tr>";
 			echo "</thead>";
 			echo "<tbody>";
 			}
 			else {
-				echo "Aktualnie nie wynajmujesz żadnego z pokoi.";
+				echo "You aren't booking any rooms at this moment.";
 			}
 			
 			
@@ -77,8 +77,8 @@ require('db.php');
 			}
 		
 		echo "<br><br>";		
-		echo "<h2> Zarezerwuj pokój: </h2>";
-		echo "<h4> Lista dostępnych pokoi: </h4>";
+		echo "<h2> Book a room: </h2>";
+		echo "<h4> Available rooms: </h4>";
 		
 
 			$query = "SELECT * FROM `booked`";
@@ -104,9 +104,9 @@ require('db.php');
 			echo "<table class='table table-hover'>";
 			echo "<thead>";
 			echo "<tr>";
-			echo "<th>Numer Pokoju</th>";
-			echo "<th>Cena za dobę</th>";
-			echo "<th>Ilu osobowy</th>";
+			echo "<th>Room number</th>";
+			echo "<th>Price per night</th>";
+			echo "<th>Number of persons</th>";
 			echo "<th></th>";
 			echo "</tr>";
 			echo "</thead>";
@@ -122,68 +122,68 @@ require('db.php');
 					echo "<td>".$row['number']."</td>";
 					echo "<td>".$row['price']."</td>";
 					echo "<td>".$row['people']."</td>";
-					echo "<td><button onclick='bookRoom(".$row['id'].")' type='button' class='btn btn-primary'>Zarezerwuj</button></td>";
+					echo "<td><button onclick='bookRoom(".$row['id'].")' type='button' class='btn btn-primary'>Book</button></td>";
 					echo "</tr>"; 
 				}
 				echo "</tbody>";
 				echo "</table>";
 			}
 			else {
-				echo "Aktualnie nie ma dostępnych wolnych pokoi. Zapraszamy wkrótce!";
+				echo "There are no available rooms at this moment. Come later!";
 			}
 		}
 		
 		else if ($_SESSION['accountType'] == 'admin') {
-			echo "<h2 style='margin-top: 50px;'> Witaj administratorze! </h2>";
+			echo "<h2 style='margin-top: 50px;'> Welcome, administrator! </h2>";
 			
 			echo "<div class='panel panel-primary'>";
-			echo "<div class='panel-heading'>Dodaj pokój do bazy danych</div>";
+			echo "<div class='panel-heading'>Add a room to database</div>";
 			echo "<div class='panel-body'>";
-			echo "<form action='addroom.php' method='post'><div class='form-group'><input type='number' class='form-control' placeholder='Numer pokoju' name='number'></div>";
-			echo "<div class='form-group'><input type='number' class='form-control' name='people' placeholder='Ilość osób'></div>";
-			echo "<div class='form-group'><input type='number' class='form-control' name='price' placeholder='Cena za dobę'></div>";
+			echo "<form action='addroom.php' method='post'><div class='form-group'><input type='number' class='form-control' placeholder='Room number' name='number'></div>";
+			echo "<div class='form-group'><input type='number' class='form-control' name='people' placeholder='How many people'></div>";
+			echo "<div class='form-group'><input type='number' class='form-control' name='price' placeholder='Price per night'></div>";
 			echo "<div style='clear: both;'></div>";
-			echo "<button style='margin-top: 20px;' type='submit' class='btn btn-primary'>Dodaj</button></form></div></div>";	
+			echo "<button style='margin-top: 20px;' type='submit' class='btn btn-primary'>Add</button></form></div></div>";	
 
 			echo "<div style='margin-top: 20px; margin-bottom: 20px;'></div>";
 			
 			echo "<div class='panel panel-primary'>";
-			echo "<div class='panel-heading'>Zaktualizuj pokój w bazie danych</div>";
+			echo "<div class='panel-heading'>Update room in database</div>";
 			echo "<div class='panel-body'>";
 			echo "<form action='updateroom.php' method='post'>";
-			echo "<div class='form-group'><input type='number' class='form-control' placeholder='ID pokoju' name='id'></div>";
-			echo "<div class='form-group'><input type='number' class='form-control' placeholder='Numer pokoju' name='number'></div>";
-			echo "<div class='form-group'><input type='number' class='form-control' name='people' placeholder='Ilość osób'></div>";
-			echo "<div class='form-group'><input type='number' class='form-control' name='price' placeholder='Cena za dobę'></div>";
+			echo "<div class='form-group'><input type='number' class='form-control' placeholder='Room ID' name='id'></div>";
+			echo "<div class='form-group'><input type='number' class='form-control' placeholder='Room number' name='number'></div>";
+			echo "<div class='form-group'><input type='number' class='form-control' name='people' placeholder='How many people'></div>";
+			echo "<div class='form-group'><input type='number' class='form-control' name='price' placeholder='Price per night'></div>";
 			echo "<div style='clear: both;'></div>";
-			echo "<button style='margin-top: 20px;' type='submit' class='btn btn-primary'>Zaktualizuj</button></form></div></div>";
+			echo "<button style='margin-top: 20px;' type='submit' class='btn btn-primary'>Update</button></form></div></div>";
 			
 			echo "<div style='margin-top: 20px; margin-bottom: 20px;'></div>";
 			
 			echo "<div class='panel panel-primary'>";
-			echo "<div class='panel-heading'>Usuń pokój z bazy danych</div>";
+			echo "<div class='panel-heading'>Delete room from database</div>";
 			echo "<div class='panel-body'>";
 			echo "<form action='deleteroom.php' method='post'>";
-			echo "<div class='form-group'><input type='number' class='form-control' placeholder='ID pokoju' name='id'></div>";
+			echo "<div class='form-group'><input type='number' class='form-control' placeholder='Room ID' name='id'></div>";
 			echo "<div style='clear: both;'></div>";
-			echo "<button style='margin-top: 20px;' type='submit' class='btn btn-primary'>Usuń</button></form></div></div>";
+			echo "<button style='margin-top: 20px;' type='submit' class='btn btn-primary'>Delete</button></form></div></div>";
 			
 			echo "<div style='margin-top: 20px; margin-bottom: 20px;'></div>";
 			
 			echo "<div class='panel panel-primary'>";
-			echo "<div class='panel-heading'>Usuń rezerwację</div>";
+			echo "<div class='panel-heading'>Delete booking</div>";
 			echo "<div class='panel-body'>";
 			echo "<form action='deletebooking.php' method='post'>";
-			echo "<div class='form-group'><input type='number' class='form-control' placeholder='ID pokoju' name='id'></div>";
+			echo "<div class='form-group'><input type='number' class='form-control' placeholder='Room ID' name='id'></div>";
 			echo "<div style='clear: both;'></div>";
-			echo "<button style='margin-top: 20px;' type='submit' class='btn btn-primary'>Usuń</button></form></div></div>";
+			echo "<button style='margin-top: 20px;' type='submit' class='btn btn-primary'>Delete</button></form></div></div>";
 		}
 		?>
 		
 		<br><br>
 		
 		<a href="logout.php">
-		<button style='margin-bottom: 50px;' type="button" class="btn btn-primary">Wyloguj się</button>
+		<button style='margin-bottom: 50px;' type="button" class="btn btn-primary">Sign out</button>
 		</a>
 	</div>
 	

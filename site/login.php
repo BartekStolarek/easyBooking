@@ -29,27 +29,27 @@
 			
 			header("Location: index.php");
             } else {
-				echo "<div class='form' style='text-align: center;'><h3>Użytkownik lub hasło jest niepoprawne.</h3><br/> Kliknij tutaj żeby <a href='login.php'>zalogować się ponownie.</a></div>";
+				echo "<div class='form' style='text-align: center;'><h3>Wrong username or password.</h3><br/> Click <a href='login.php'>here</a> to try again.</div>";
 			}
     } else {
 ?>
 	<div class="container">
 		<h1> easy<b>Booking</b> </h1>
-		<h3 style="margin-top: 70px;">Zaloguj się</h3>
+		<h3 style="margin-top: 70px;">Sign In</h3>
 
 		<form action="" method="post" name="login">	
 			<div class="input-group col-lg-12">
 				<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-				<input type="text" class="form-control" name="username" placeholder="Użytkownik">
+				<input type="text" class="form-control" name="username" placeholder="Username">
 			</div>
 			<div class="input-group col-lg-12">
 				<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-				<input type="password" class="form-control" name="password" placeholder="Hasło">
+				<input type="password" class="form-control" name="password" placeholder="Password">
 			</div>
 
-			<button style="margin-top: 20px;" type="submit" class="btn btn-primary">Zaloguj się</button>
+			<button style="margin-top: 20px;" type="submit" class="btn btn-primary">Sign In</button>
 		</form>
-		<p style="margin-top: 50px;">Nie masz jeszcze konta? Kliknij <a href='registration.php'>tutaj</a>, aby się zarejestrować.</p>
+		<p style="margin-top: 50px;">Don't have an account? Click <a href='registration.php'>here</a> to register.</p>
 
 	</div>
 	<?php } ?>

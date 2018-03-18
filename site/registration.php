@@ -21,18 +21,18 @@
         $query = "INSERT into `users` (username, password, email, trn_date, account_type) VALUES ('$username', '".md5($password)."', '$email', '$trn_date', 'client')";
         $result = mysqli_query($con,$query);
         if($result){
-            echo "<div class='form' style='text-align: center;'><h3>Rejestracja zakończona pomyślnie.</h3><br/>Kliknij <a href='login.php'>tutaj</a> aby się zalogować.</div>";
+            echo "<div class='form' style='text-align: center;'><h3>You have signed up successfully! </h3><br/>Click <a href='login.php'>here</a> to sign in.</div>";
         }
     } else {
 ?>
 	<div class="container">
 		<h1> easy<b>Booking</b> </h1>
-		<h3 style="margin-top: 70px;">Zarejestruj się</h3>
+		<h3 style="margin-top: 70px;">Sign Up</h3>
 		
 		<form name="registration" action="" method="post">
 			<div class="input-group">
 				<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-				<input type="text" class="form-control" name="username" placeholder="Użytkownik" required>
+				<input type="text" class="form-control" name="username" placeholder="Username" required>
 			</div>
 			<div class="input-group">
 				<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
@@ -40,10 +40,10 @@
 			</div>
 			<div class="input-group">
 				<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-				<input type="password" class="form-control" name="password" placeholder="Hasło" required>
+				<input type="password" class="form-control" name="password" placeholder="Password" required>
 			</div>
 
-			<button style="margin-top: 20px;" type="submit" class="btn btn-primary">Zarejestruj się</button>
+			<button style="margin-top: 20px;" type="submit" class="btn btn-primary">Sign Up</button>
 	</form>
 	
 	
